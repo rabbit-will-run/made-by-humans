@@ -218,7 +218,7 @@ export default defineConfig({
 	},
 	plugins: [sentrySvelteKit({
         org: "made-by-humans-5m",
-        project: "javascript-sveltekit"
+        project: "made-by-humans"
     }), tailwindcss(), sveltekit()],
 	test: {
 		expect: { requireAssertions: true },
