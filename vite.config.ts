@@ -1,6 +1,7 @@
+import { sentrySvelteKit } from "@sentry/sveltekit/vite";
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'vite-plus';
-import { playwright } from 'vite-plus/test/browser-playwright';
+import { defineConfig } from 'vitest/config';
+import { playwright } from '@vitest/browser-playwright';
 import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig({
@@ -215,7 +216,10 @@ export default defineConfig({
 			'/static/'
 		]
 	},
-	plugins: [tailwindcss(), sveltekit()],
+	plugins: [sentrySvelteKit({
+        org: "made-by-humans-5m",
+        project: "javascript-sveltekit"
+    }), tailwindcss(), sveltekit()],
 	test: {
 		expect: { requireAssertions: true },
 		projects: [
